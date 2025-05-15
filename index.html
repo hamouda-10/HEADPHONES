@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --text-dark: #000000;
+  --text-light: #727274;
+  --extra-light: #ffffff;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --header-font: "Montserrat", sans-serif;
+  --primary-color: #5fda2b;
+  --secondary-color: #ff4757;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+.btn {
+  max-width: fit-content;
+  padding: 0.5rem 1.5rem;
+  outline: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: var(--header-font);
+  white-space: nowrap;
+  color: var(--white);
+  background-color: var(--text-dark);
+  border-radius: 2rem;
+  transition: 0.2s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  color: var(--text-dark);
+  background-color: var(--extra-light);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: #4bc022;
+  color: var(--white);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background-color: #ff6b81;
+  color: var(--white);
+}
+
+.btn-sm {
+  padding: 0.4rem 1.2rem;
+  font-size: 0.8rem;
+}
+
+img {
+  display: flex;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  position: fixed;
+  isolation: isolate;
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  z-index: 9;
+}
+
+.nav__header {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--text-dark);
+}
+
+.nav__logo img {
+  max-width: 150px;
+}
+
+.logo-dark {
+  display: none;
+}
+
+.nav__menu__btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav__links {
+  position: absolute;
+  top: 65px;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--text-dark);
+  transition: 0.2s;
+  z-index: -1;
+  transform: translateY(-100%);
+}
+
+.nav__links.open {
+  transform: translateY(0);
+}
+
+.nav__links a {
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--white);
+  transition: 0.3s;
+}
+
+.nav__links .btn {
+  padding-inline: 1.5rem;
+  color: var(--text-dark);
+  background-color: var(--white);
+  border-radius: 5px;
+}
+
+.cart-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.wishlist-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.wishlist-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.header__container {
+  display: grid;
+  gap: 2rem;
+}
+
+.header__image {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.header__image img {
+  max-width: 450px;
+  margin-inline: auto;
+}
+
+img.header-bg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 350px;
+  opacity: 0.05;
+  z-index: -1;
+}
+
+.header__image__content {
+  text-align: center;
+}
+
+.header__image__content h4 {
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.header__content {
+  text-align: center;
+}
+
+.header__content h1 {
+  margin-bottom: 1.5rem;
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: var(--header-font);
+  color: var(--text-dark);
+  line-height: 3rem;
+}
+
+.header__content p {
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.product {
+  overflow: hidden;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 1));
+}
+
+.product__grid {
+  margin-bottom: 4rem;
+  display: grid;
+  gap: 4rem;
+}
+
+.product__image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product__image img {
+  max-width: 350px;
+  margin-inline: auto;
+  transform: rotate(-15deg);
+  transition: transform 0.3s ease;
+}
+
+.product__image .color-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(58, 58, 58, 0.3);
+  z-index: -1;
+  border-radius: 20px;
+}
+
+.product__content {
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.product__card {
+  text-align: center;
+}
+
+.product__card h4 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: var(--header-font);
+  color: var(--white);
+}
+
+.product__card p {
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.product__card a {
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.product__card a:hover {
+  color: var(--white);
+}
+
+.product__colors {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.product__colors > div {
+  width: 30px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-light);
+  border-radius: 100%;
+  cursor: pointer;
+  transition: transform 0.3s;
+  border: 2px solid transparent;
+}
+
+.product__colors > div:hover {
+  transform: scale(1.1);
+}
+
+.product__colors > div.selected {
+  border: 2px solid var(--white);
+}
+
+.product__colors > div:nth-child(1) {
+  background-color: #3a3a3a;
+}
+
+.product__colors > div:nth-child(2) {
+  background-color: #efefef;
+}
+
+.product__colors > div:nth-child(3) {
+  background-color: #da372b;
+}
+
+.product__colors > div:nth-child(4) {
+  background-color: #2d6890;
+}
+
+.product__colors > div:nth-child(5) {
+  background-color: #754e27;
+}
+
+.product__btn {
+  text-align: center;
+}
+
+.product__btn .btn {
+  color: var(--text-dark);
+  background-color: var(--white);
+}
+
+.product__btn .btn:hover {
+  background-color: var(--extra-light);
+}
+
+.store__container h2 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--header-font);
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.store__container p {
+  margin-bottom: 4rem;
+  font-weight: 500;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.swiper {
+  width: 100%;
+  padding-bottom: 5rem;
+}
+
+.swiper-slide {
+  max-width: 400px;
+}
+
+.store__card {
+  position: relative;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background-color: var(--extra-light);
+}
+
+.store__card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.store__card h4 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--header-font);
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.store__card img {
+  max-width: 325px;
+  margin-inline: auto;
+  margin-bottom: 2rem;
+  transition: transform 0.3s;
+}
+
+.store__card:hover img {
+  transform: scale(1.05);
+}
+
+.store__card h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-family: var(--header-font);
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.store__actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.store__actions .btn {
+  margin: 0;
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 2;
+}
+
+.wishlist-btn:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.wishlist-btn.active {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.wishlist-btn i {
+  font-size: 1.2rem;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--text-dark);
+}
+
+.footer {
+  background-color: var(--text-dark);
+}
+
+.footer__container img {
+  margin-bottom: 2rem;
+  max-width: 225px;
+  margin-inline: auto;
+}
+
+.footer__socials {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer__socials a {
+  padding: 2px 7px;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  background-color: var(--white);
+  border-radius: 100%;
+}
+
+.footer__socials a:hover {
+  color: var(--white);
+  background-color: var(--primary-color);
+}
+
+.footer__bar {
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
+/* Shopping Cart Styles */
+.cart-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  background-color: var(--white);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.cart-modal.open {
+  transform: translateX(0);
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--extra-light);
+}
+
+.cart-header h3 {
+  font-size: 1.5rem;
+  font-family: var(--header-font);
+}
+
+.close-cart {
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.cart-items {
+  padding: 1.5rem;
+}
+
+.cart-item {
+  display: flex;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--extra-light);
+}
+
+.cart-item-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cart-item-price {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-btn {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--extra-light);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.quantity {
+  margin: 0 0.5rem;
+  min-width: 20px;
+  text-align: center;
+}
+
+.remove-item {
+  margin-left: auto;
+  color: var(--text-light);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.remove-item:hover {
+  color: var(--primary-color);
+}
+
+.cart-total {
+  padding: 1.5rem;
+  border-top: 1px solid var(--extra-light);
+  text-align: right;
+}
+
+.cart-total h4 {
+  font-family: var(--header-font);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.cart-total .btn {
+  width: 100%;
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-light);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Added to cart notification */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.notification.show {
+  opacity: 1;
+}
+
+/* Wishlist Modal */
+.wishlist-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  background-color: var(--white);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.wishlist-modal.open {
+  transform: translateX(0);
+}
+
+.wishlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--extra-light);
+}
+
+.wishlist-header h3 {
+  font-size: 1.5rem;
+  font-family: var(--header-font);
+}
+
+.close-wishlist {
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.wishlist-items {
+  padding: 1.5rem;
+}
+
+.wishlist-item {
+  display: flex;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--extra-light);
+}
+
+.wishlist-item-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+.wishlist-item-details {
+  flex: 1;
+}
+
+.wishlist-item-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.wishlist-item-price {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.wishlist-item-actions {
+  display: flex;
+  align-items: center;
+}
+
+.move-to-cart {
+  margin-right: 1rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.remove-wishlist-item {
+  color: var(--text-light);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.remove-wishlist-item:hover {
+  color: var(--secondary-color);
+}
+
+.empty-wishlist {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-light);
+}
+
+@media (width > 768px) {
+  nav {
+    position: static;
+    padding-block: 2rem 0;
+    padding-inline: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .nav__header {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .nav__logo img {
+    max-width: 175px;
+  }
+
+  .logo-white {
+  display: none;
+  }
+
+  .logo-dark {
+    display: flex;
+  }
+
+  .nav__menu__btn {
+    display: none;
+  }
+
+  .nav__links {
+    position: static;
+    padding: 0;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 2rem;
+    background-color: transparent;
+    transform: none;
+  }
+
+  .nav__links a {
+    color: var(--text-dark);
+  }
+
+  .nav__links a:hover {
+    color: var(--text-light);
+  }
+
+  .nav__links .btn {
+    color: var(--white);
+    background-color: var(--text-dark);
+  }
+
+  .header__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .header__image {
+    grid-area: 1/2/2/3;
+  }
+
+  .header__image img {
+    margin-inline-start: unset;
+  }
+
+  .header__image__content {
+    position: absolute;
+    right: 0;
+    bottom: 2rem;
+  }
+
+  .header__content {
+    text-align: left;
+  }
+
+  .header__content h1 {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+  }
+
+  .product__grid {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .product__card {
+    text-align: left;
+  }
+
+  .product__colors {
+    justify-content: flex-start;
+  }
+  
+  .cart-icon {
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-icon {
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+  
+  .store__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .store__actions .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+
+
+/* Product Details Modal Styles */
+.product-details-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  background-color: var(--white);
+  border-radius: 10px;
+  z-index: 1002;
+  overflow-y: auto;
+  display: none;
+  padding: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-details-modal.open {
+  display: block;
+}
+
+.product-details-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.product-details-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-details-image img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.product-details-info h3 {
+  font-size: 1.8rem;
+  font-family: var(--header-font);
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.product-details-info .price {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.product-details-info .description {
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.product-details-info .features {
+  margin-bottom: 2rem;
+}
+
+.product-details-info .features h4 {
+  font-family: var(--header-font);
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.product-details-info .features ul {
+  padding-left: 1.5rem;
+  color: var(--text-light);
+}
+
+.product-details-info .features li {
+  margin-bottom: 0.5rem;
+}
+
+.product-details-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.close-details {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .product-details-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .product-details-actions {
+    flex-direction: column;
+  }
+  
+  .product-details-actions .btn {
+    width: 100%;
+  }
+}
+</style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <title>Premium Bluetooth Headphones | JBL Beats</title>
+  </head>
+  <!-- Product Details Modal -->
+<div class="product-details-modal" id="product-details-modal">
+  <button class="close-details" id="close-details">
+    <i class="ri-close-line"></i>
+  </button>
+  <div class="product-details-content" id="product-details-content">
+    <!-- Content will be filled dynamically -->
+  </div>
+</div>
+  <body>
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="#">
+            <img src="assets/logo-dark.png" alt="logo" class="logo-dark" />
+            <img src="assets/logo-white.png" alt="logo" class="logo-white" />
+          </a>
+        </div>
+        <!-- Shopping Cart Modal -->
+        <div class="cart-modal" id="cart-modal">
+          <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="close-cart">
+              <i class="ri-close-line"></i>
+            </button>
+          </div>
+          <div class="cart-items" id="cart-items">
+            <!-- Cart items will be added here dynamically -->
+            <div class="empty-cart">Your cart is empty</div>
+          </div>
+          <div class="cart-total">
+            <h4>Total: <span id="cart-total">$0</span></h4>
+            <button class="btn btn-primary" id="checkout-btn">Checkout</button>
+          </div>
+        </div>
+        
+        <!-- Wishlist Modal -->
+        <div class="wishlist-modal" id="wishlist-modal">
+          <div class="wishlist-header">
+            <h3>Your Wishlist</h3>
+            <button class="close-wishlist" id="close-wishlist">
+              <i class="ri-close-line"></i>
+            </button>
+          </div>
+          <div class="wishlist-items" id="wishlist-items">
+            <!-- Wishlist items will be added here dynamically -->
+            <div class="empty-wishlist">Your wishlist is empty</div>
+          </div>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+
+        <!-- Added to cart notification -->
+        <div class="notification" id="notification">
+          Item added to cart!
+        </div>
+
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#product">Product</a></li>
+        <li><a href="#store">Store</a></li>
+        <li>
+          <div class="wishlist-icon" id="wishlist-icon">
+            <i class="ri-heart-line"></i>
+            <span class="wishlist-count">0</span>
+          </div>
+        </li>
+        <li>
+          <div class="cart-icon" id="cart-icon">
+            <i class="ri-shopping-cart-2-line"></i>
+            <span class="cart-count">0</span>
+          </div>
+        </li>
+        <li><button class="btn">Buy Now</button></li>
+      </ul>
+    </nav>
+
+    
+    <header class="section__container header__container" id="home">
+      <div class="header__image">
+        <img src="assets/header.png" alt="header" />
+        <img src="assets/header-bg.png" alt="header_bg" class="header-bg" />
+        <div class="header__image__content">
+          <h4>Price: $100</h4>
+          <button class="btn btn-primary" id="add-to-cart-header">Add to cart</button>
+        </div>
+      </div>
+      <div class="header__content">
+        <h1>Bluetooth<br />Headphone</h1>
+        <p>
+          Dive into our curated selection of premium Bluetooth headphones,
+          crafted for the ultimate listening experience.
+        </p>
+      </div>
+    </header>
+
+    <section class="product" id="product">
+      <div class="section__container product__container">
+        <div class="product__grid">
+          <div class="product__image">
+            <img src="assets/product.png" alt="product" id="product-image" />
+            <div class="color-overlay"></div>
+          </div>
+          <div class="product__content">
+            <div class="product__card">
+              <h4>Bluetooth</h4>
+              <p>Bluetooth 4.2 - ACC codec</p>
+              <a href="#">Learn More</a>
+            </div>
+            <div class="product__card">
+              <h4>Quality sound</h4>
+              <a href="#">Learn More</a>
+            </div>
+            <div class="product__card">
+              <div class="product__colors">
+                <div class="selected" data-color="#3a3a3a"><i class="ri-check-line"></i></div>
+                <div data-color="#efefef"></div>
+                <div data-color="#da372b"></div>
+                <div data-color="#2d6890"></div>
+                <div data-color="#754e27"></div>
+              </div>
+              <p>Available colors</p>
+            </div>
+          </div>
+        </div>
+        <div class="product__btn">
+          <button class="btn btn-primary" id="add-to-cart-product">Add to cart</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container store__container" id="store">
+      <h2>JBL beats design</h2>
+      <p>
+        Explore our JBL Beats Design collection, where style meets superior
+        audio performance.
+      </p>
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="store__card">
+              <button class="wishlist-btn" data-name="Dark Blue Headphone" data-price="120" data-image="assets/store-1.png">
+                <i class="ri-heart-line"></i>
+              </button>
+              <h4>DARK BLUE</h4>
+              <img src="assets/store-1.png" alt="store" />
+              <h3>Price- $120</h3>
+              <div class="store__actions">
+                <button class="btn btn-primary btn-sm add-to-cart" data-name="Dark Blue Headphone" data-price="120" data-image="assets/store-1.png">Add to Cart</button>
+                <button class="btn btn-secondary btn-sm">View Details</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="store__card">
+              <button class="wishlist-btn" data-name="Lead Headphone" data-price="130" data-image="assets/store-2.png">
+                <i class="ri-heart-line"></i>
+              </button>
+              <h4>LEAD</h4>
+              <img src="assets/store-2.png" alt="store" />
+              <h3>Price- $130</h3>
+              <div class="store__actions">
+                <button class="btn btn-primary btn-sm add-to-cart" data-name="Lead Headphone" data-price="130" data-image="assets/store-2.png">Add to Cart</button>
+                <button class="btn btn-secondary btn-sm">View Details</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="store__card">
+              <button class="wishlist-btn" data-name="Light Orange Headphone" data-price="110" data-image="assets/store-3.png">
+                <i class="ri-heart-line"></i>
+              </button>
+              <h4>LIGHT ORANGE</h4>
+              <img src="assets/store-3.png" alt="store" />
+              <h3>Price- $110</h3>
+              <div class="store__actions">
+                <button class="btn btn-primary btn-sm add-to-cart" data-name="Light Orange Headphone" data-price="110" data-image="assets/store-3.png">Add to Cart</button>
+                <button class="btn btn-secondary btn-sm">View Details</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="store__card">
+              <button class="wishlist-btn" data-name="Green Headphone" data-price="140" data-image="assets/store-4.png">
+                <i class="ri-heart-line"></i>
+              </button>
+              <h4>GREEN</h4>
+              <img src="assets/store-4.png" alt="store" />
+              <h3>Price- $140</h3>
+              <div class="store__actions">
+                <button class="btn btn-primary btn-sm add-to-cart" data-name="Green Headphone" data-price="140" data-image="assets/store-4.png">Add to Cart</button>
+                <button class="btn btn-secondary btn-sm">View Details</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="store__card">
+              <button class="wishlist-btn" data-name="Silver Headphone" data-price="100" data-image="assets/store-5.png">
+                <i class="ri-heart-line"></i>
+              </button>
+              <h4>SILVER</h4>
+              <img src="assets/store-5.png" alt="store" />
+              <h3>Price- $100</h3>
+              <div class="store__actions">
+                <button class="btn btn-primary btn-sm add-to-cart" data-name="Silver Headphone" data-price="100" data-image="assets/store-5.png">Add to Cart</button>
+                <button class="btn btn-secondary btn-sm">View Details</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="store__card">
+              <button class="wishlist-btn" data-name="Pink Headphone" data-price="150" data-image="assets/store-6.png">
+                <i class="ri-heart-line"></i>
+              </button>
+              <h4>PINK</h4>
+              <img src="assets/store-6.png" alt="store" />
+              <h3>Price- $150</h3>
+              <div class="store__actions">
+                <button class="btn btn-primary btn-sm add-to-cart" data-name="Pink Headphone" data-price="150" data-image="assets/store-6.png">Add to Cart</button>
+                <button class="btn btn-secondary btn-sm">View Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <img src="assets/logo-white.png" alt="logo" />
+        <ul class="footer__socials">
+          <li>
+            <a href="https://www.facebook.com/abdelrahman.hamouda.18?mibextid=ZbWKwL"><i class="ri-facebook-fill"></i></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/hamouda_1000/"><i class="ri-instagram-fill"></i></a>
+          </li>
+          <li>
+            <a href="https://wa.me/+201201898518"><i class="ri-whatsapp-line"></i></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/abdelrahman-hamouda-a3b609328/"><i class="ri-linkedin-fill"></i></a>
+          </li>
+        </ul>
+      </div>
+      <h2 style="color: white; text-align: center; margin-top: -50px;">Abdelrahman Hamouda</h2>
+      </style>
+
+      <div class="footer__bar">
+        Copyright © 2025 . All rights reserved
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      // Navigation
+      const menuBtn = document.getElementById("menu-btn");
+      const navLinks = document.getElementById("nav-links");
+      const menuBtnIcon = menuBtn.querySelector("i");
+
+      menuBtn.addEventListener("click", (e) => {
+        navLinks.classList.toggle("open");
+
+        const isOpen = navLinks.classList.contains("open");
+        menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+      });
+
+      navLinks.addEventListener("click", (e) => {
+        navLinks.classList.remove("open");
+        menuBtnIcon.setAttribute("class", "ri-menu-line");
+      });
+
+      // Scroll Reveal Animations
+      const scrollRevealOption = {
+        distance: "50px",
+        origin: "bottom",
+        duration: 1000,
+      };
+
+      ScrollReveal().reveal(".header__image img", {
+        ...scrollRevealOption,
+        origin: "right",
+      });
+      ScrollReveal().reveal(".header__content h1", {
+        ...scrollRevealOption,
+        delay: 500,
+      });
+      ScrollReveal().reveal(".header__content p", {
+        ...scrollRevealOption,
+        delay: 1000,
+      });
+      ScrollReveal().reveal(".header__image__content ", {
+        duration: 1000,
+        delay: 1500,
+      });
+
+      ScrollReveal().reveal(".product__image img", {
+        ...scrollRevealOption,
+        origin: "left",
+      });
+      ScrollReveal().reveal(".product__card", {
+        ...scrollRevealOption,
+        delay: 500,
+        interval: 500,
+      });
+
+      // Swiper Slider
+      const swiper = new Swiper(".swiper", {
+        loop: true,
+        effect: "coverflow",
+        grabCursor: true,
+        centerSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+          rotate: 0,
+          depth: 250,
+          modifier: 1,
+          scale: 0.75,
+          slideShadows: false,
+          stretch: -100,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      });
+
+      // Color Selection
+      const colorElements = document.querySelectorAll(".product__colors div");
+      const productImage = document.getElementById("product-image");
+      const colorOverlay = document.querySelector(".color-overlay");
+
+      colorElements.forEach(color => {
+        color.addEventListener("click", function() {
+          // Remove selected class from all colors
+          colorElements.forEach(c => c.classList.remove("selected"));
+          
+          // Add selected class to clicked color
+          this.classList.add("selected");
+          
+          // Update checkmark icon
+          colorElements.forEach(c => {
+            if (c.querySelector("i")) {
+              c.innerHTML = '';
+            }
+          });
+          this.innerHTML = '<i class="ri-check-line"></i>';
+          
+          // Get the color from data attribute
+          const selectedColor = this.getAttribute("data-color");
+          
+          // Update overlay color
+          colorOverlay.style.backgroundColor = `${selectedColor}30`; // 30 is for opacity
+        });
+      });
+
+      // Shopping Cart Functionality
+      const cartIcon = document.getElementById("cart-icon");
+      const cartModal = document.getElementById("cart-modal");
+      const closeCart = document.getElementById("close-cart");
+      const overlay = document.getElementById("overlay");
+      const cartItemsContainer = document.getElementById("cart-items");
+      const cartTotal = document.getElementById("cart-total");
+      const cartCount = document.querySelector(".cart-count");
+      const notification = document.getElementById("notification");
+
+      // Wishlist Functionality
+      const wishlistIcon = document.getElementById("wishlist-icon");
+      const wishlistModal = document.getElementById("wishlist-modal");
+      const closeWishlist = document.getElementById("close-wishlist");
+      const wishlistItemsContainer = document.getElementById("wishlist-items");
+      const wishlistCount = document.querySelector(".wishlist-count");
+
+      let cart = [];
+      let wishlist = [];
+
+      // Toggle cart modal
+      cartIcon.addEventListener("click", () => {
+        cartModal.classList.add("open");
+        overlay.classList.add("active");
+        wishlistModal.classList.remove("open");
+      });
+
+      closeCart.addEventListener("click", () => {
+        cartModal.classList.remove("open");
+        overlay.classList.remove("active");
+      });
+
+      // Toggle wishlist modal
+      wishlistIcon.addEventListener("click", () => {
+        wishlistModal.classList.add("open");
+        overlay.classList.add("active");
+        cartModal.classList.remove("open");
+      });
+
+      closeWishlist.addEventListener("click", () => {
+        wishlistModal.classList.remove("open");
+        overlay.classList.remove("active");
+      });
+
+      overlay.addEventListener("click", () => {
+        cartModal.classList.remove("open");
+        wishlistModal.classList.remove("open");
+        overlay.classList.remove("active");
+      });
+
+      // Add to cart functions
+      function addToCart(name, price, image, quantity = 1) {
+        // Check if item already exists in cart
+        const existingItem = cart.find(item => item.name === name);
+        
+        if (existingItem) {
+          existingItem.quantity += quantity;
+        } else {
+          cart.push({
+            name,
+            price,
+            image,
+            quantity
+          });
+        }
+        
+        updateCart();
+        showNotification();
+      }
+
+      function updateCart() {
+        // Update cart count
+        const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+        cartCount.textContent = totalItems;
+        
+        // Update cart items display
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = '<div class="empty-cart">Your cart is empty</div>';
+        } else {
+          cartItemsContainer.innerHTML = '';
+          cart.forEach(item => {
+            const cartItemElement = document.createElement("div");
+            cartItemElement.className = "cart-item";
+            cartItemElement.innerHTML = `
+              <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+              <div class="cart-item-details">
+                <div class="cart-item-title">${item.name}</div>
+                <div class="cart-item-price">$${item.price}</div>
+                <div class="cart-item-actions">
+                  <button class="quantity-btn decrease" data-name="${item.name}">-</button>
+                  <span class="quantity">${item.quantity}</span>
+                  <button class="quantity-btn increase" data-name="${item.name}">+</button>
+                  <span class="remove-item" data-name="${item.name}">Remove</span>
+                </div>
+              </div>
+            `;
+            cartItemsContainer.appendChild(cartItemElement);
+          });
+        }
+        
+        // Update total
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        cartTotal.textContent = `$${total.toFixed(2)}`;
+      }
+
+      // Wishlist functions
+      function toggleWishlist(name, price, image) {
+        const existingItemIndex = wishlist.findIndex(item => item.name === name);
+        
+        if (existingItemIndex >= 0) {
+          // Remove from wishlist
+          wishlist.splice(existingItemIndex, 1);
+        } else {
+          // Add to wishlist
+          wishlist.push({
+            name,
+            price,
+            image
+          });
+        }
+        
+        updateWishlist();
+      }
+
+      function updateWishlist() {
+        // Update wishlist count
+        wishlistCount.textContent = wishlist.length;
+        
+        // Update wishlist items display
+        if (wishlist.length === 0) {
+          wishlistItemsContainer.innerHTML = '<div class="empty-wishlist">Your wishlist is empty</div>';
+        } else {
+          wishlistItemsContainer.innerHTML = '';
+          wishlist.forEach(item => {
+            const wishlistItemElement = document.createElement("div");
+            wishlistItemElement.className = "wishlist-item";
+            wishlistItemElement.innerHTML = `
+              <img src="${item.image}" alt="${item.name}" class="wishlist-item-img">
+              <div class="wishlist-item-details">
+                <div class="wishlist-item-title">${item.name}</div>
+                <div class="wishlist-item-price">$${item.price}</div>
+                <div class="wishlist-item-actions">
+                  <span class="move-to-cart" data-name="${item.name}" data-price="${item.price}" data-image="${item.image}">Add to Cart</span>
+                  <span class="remove-wishlist-item" data-name="${item.name}">Remove</span>
+                </div>
+              </div>
+            `;
+            wishlistItemsContainer.appendChild(wishlistItemElement);
+          });
+        }
+        
+        // Update wishlist buttons state
+        document.querySelectorAll('.wishlist-btn').forEach(btn => {
+          const itemName = btn.getAttribute('data-name');
+          const isInWishlist = wishlist.some(item => item.name === itemName);
+          
+          if (isInWishlist) {
+            btn.classList.add('active');
+            btn.innerHTML = '<i class="ri-heart-fill"></i>';
+          } else {
+            btn.classList.remove('active');
+            btn.innerHTML = '<i class="ri-heart-line"></i>';
+          }
+        });
+      }
+
+      function showNotification() {
+        notification.classList.add("show");
+        setTimeout(() => {
+          notification.classList.remove("show");
+        }, 2000);
+      }
+
+      // Handle cart item actions
+      cartItemsContainer.addEventListener("click", (e) => {
+        if (e.target.classList.contains("decrease")) {
+          const itemName = e.target.getAttribute("data-name");
+          const item = cart.find(item => item.name === itemName);
+          if (item.quantity > 1) {
+            item.quantity--;
+          } else {
+            cart = cart.filter(item => item.name !== itemName);
+          }
+          updateCart();
+        } else if (e.target.classList.contains("increase")) {
+          const itemName = e.target.getAttribute("data-name");
+          const item = cart.find(item => item.name === itemName);
+          item.quantity++;
+          updateCart();
+        } else if (e.target.classList.contains("remove-item")) {
+          const itemName = e.target.getAttribute("data-name");
+          cart = cart.filter(item => item.name !== itemName);
+          updateCart();
+        }
+      });
+
+      // Handle wishlist item actions
+      wishlistItemsContainer.addEventListener("click", (e) => {
+        if (e.target.classList.contains("move-to-cart")) {
+          const name = e.target.getAttribute("data-name");
+          const price = parseFloat(e.target.getAttribute("data-price"));
+          const image = e.target.getAttribute("data-image");
+          addToCart(name, price, image);
+          
+          // Remove from wishlist
+          wishlist = wishlist.filter(item => item.name !== name);
+          updateWishlist();
+        } else if (e.target.classList.contains("remove-wishlist-item")) {
+          const itemName = e.target.getAttribute("data-name");
+          wishlist = wishlist.filter(item => item.name !== itemName);
+          updateWishlist();
+        }
+      });
+
+      // Add event listeners for add to cart buttons
+      document.getElementById("add-to-cart-header").addEventListener("click", () => {
+        addToCart("Bluetooth Headphone", 100, "assets/header.png");
+      });
+
+      document.getElementById("add-to-cart-product").addEventListener("click", () => {
+        const selectedColor = document.querySelector(".product__colors .selected");
+        const colorName = selectedColor.getAttribute("data-color");
+        let colorText = "";
+        
+        switch(colorName) {
+          case "#3a3a3a":
+            colorText = "Black";
+            break;
+          case "#efefef":
+            colorText = "White";
+            break;
+          case "#da372b":
+            colorText = "Red";
+            break;
+          case "#2d6890":
+            colorText = "Blue";
+            break;
+          case "#754e27":
+            colorText = "Brown";
+            break;
+        }
+        
+        addToCart(`Bluetooth Headphone (${colorText})`, 100, "assets/product.png");
+      });
+
+      document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", () => {
+          const name = button.getAttribute("data-name");
+          const price = parseFloat(button.getAttribute("data-price"));
+          const image = button.getAttribute("data-image");
+          addToCart(name, price, image);
+        });
+      });
+
+      // Wishlist buttons
+      document.querySelectorAll('.wishlist-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const name = btn.getAttribute('data-name');
+          const price = parseFloat(btn.getAttribute('data-price'));
+          const image = btn.getAttribute('data-image');
+          toggleWishlist(name, price, image);
+        });
+      });
+
+      // Checkout button
+      document.getElementById("checkout-btn").addEventListener("click", () => {
+        alert("Thank you for your purchase!");
+        cart = [];
+        updateCart();
+        cartModal.classList.remove("open");
+        overlay.classList.remove("active");
+      });
+
+
+
+      // Product Details Data (you can expand this with more details)
+const productDetails = {
+  "Dark Blue Headphone": {
+    description: "Premium dark blue headphones with noise cancellation and deep bass technology.",
+    features: [
+      "Active Noise Cancellation",
+      "30-hour battery life",
+      "Bluetooth 5.0",
+      "Built-in microphone",
+      "Foldable design"
+    ],
+    colors: ["Dark Blue", "Black", "Silver"]
+  },
+  "Lead Headphone": {
+    description: "Professional lead-colored headphones with studio-quality sound reproduction.",
+    features: [
+      "High-resolution audio",
+      "40mm dynamic drivers",
+      "20-hour battery life",
+      "Bluetooth 4.2",
+      "Lightweight design"
+    ],
+    colors: ["Lead", "Gray", "White"]
+  },
+  "Light Orange Headphone": {
+    description: "Vibrant light orange headphones with balanced sound signature.",
+    features: [
+      "Bass boost technology",
+      "22-hour battery life",
+      "IPX4 water resistance",
+      "Touch controls",
+      "Built-in voice assistant"
+    ],
+    colors: ["Light Orange", "Red", "Yellow"]
+  },
+  "Green Headphone": {
+    description: "Eco-friendly green headphones with sustainable materials.",
+    features: [
+      "Made from recycled materials",
+      "25-hour battery life",
+      "Quick charge (5 min = 2 hours)",
+      "Bluetooth 5.1",
+      "3.5mm audio jack"
+    ],
+    colors: ["Green", "Teal", "Forest Green"]
+  },
+  "Silver Headphone": {
+    description: "Sleek silver headphones with premium metal finish.",
+    features: [
+      "Dual-mode (wired/wireless)",
+      "50mm neodymium drivers",
+      "30-hour battery life",
+      "Foldable design",
+      "Carrying case included"
+    ],
+    colors: ["Silver", "Chrome", "White"]
+  },
+  "Pink Headphone": {
+    description: "Stylish pink headphones with comfortable ear cushions.",
+    features: [
+      "Soft memory foam ear cushions",
+      "20-hour battery life",
+      "Bluetooth 4.2",
+      "Built-in microphone",
+      "Adjustable headband"
+    ],
+    colors: ["Pink", "Rose Gold", "Lavender"]
+  },
+  "Bluetooth Headphone": {
+    description: "Our flagship Bluetooth headphones with premium sound quality.",
+    features: [
+      "Advanced noise cancellation",
+      "35-hour battery life",
+      "Bluetooth 5.2",
+      "Multi-point connection",
+      "Custom EQ settings"
+    ],
+    colors: ["Black", "White", "Red", "Blue", "Brown"]
+  }
+};
+
+// Product Details Modal Elements
+const productDetailsModal = document.getElementById("product-details-modal");
+const productDetailsContent = document.getElementById("product-details-content");
+const closeDetailsBtn = document.getElementById("close-details");
+
+// Function to show product details
+function showProductDetails(name, price, image) {
+  const details = productDetails[name] || {
+    description: "Premium quality headphones with excellent sound.",
+    features: [
+      "High-quality sound",
+      "Comfortable design",
+      "Long battery life",
+      "Bluetooth connectivity"
+    ],
+    colors: ["Multiple colors available"]
+  };
+  
+  productDetailsContent.innerHTML = `
+    <div class="product-details-image">
+      <img src="${image}" alt="${name}">
+    </div>
+    <div class="product-details-info">
+      <h3>${name}</h3>
+      <div class="price">$${price}</div>
+      <div class="description">${details.description}</div>
+      <div class="features">
+        <h4>Features</h4>
+        <ul>
+          ${details.features.map(feature => `<li>${feature}</li>`).join('')}
+        </ul>
+      </div>
+      <div class="features">
+        <h4>Available Colors</h4>
+        <ul>
+          ${details.colors.map(color => `<li>${color}</li>`).join('')}
+        </ul>
+      </div>
+      <div class="product-details-actions">
+        <button class="btn btn-primary add-to-cart-details" 
+                data-name="${name}" 
+                data-price="${price}" 
+                data-image="${image}">
+          Add to Cart
+        </button>
+        <button class="btn wishlist-btn-details" 
+                data-name="${name}" 
+                data-price="${price}" 
+                data-image="${image}">
+          <i class="ri-heart-line"></i> Wishlist
+        </button>
+      </div>
+    </div>
+  `;
+  
+  productDetailsModal.classList.add("open");
+  overlay.classList.add("active");
+  
+  // Set up event listeners for the new buttons
+  document.querySelector(".add-to-cart-details").addEventListener("click", () => {
+    addToCart(name, price, image);
+  });
+  
+  document.querySelector(".wishlist-btn-details").addEventListener("click", () => {
+    toggleWishlist(name, price, image);
+    updateWishlist();
+    
+    // Update the button state
+    const isInWishlist = wishlist.some(item => item.name === name);
+    const btn = document.querySelector(".wishlist-btn-details");
+    if (isInWishlist) {
+      btn.innerHTML = '<i class="ri-heart-fill"></i> In Wishlist';
+      btn.style.backgroundColor = "var(--secondary-color)";
+      btn.style.color = "white";
+    } else {
+      btn.innerHTML = '<i class="ri-heart-line"></i> Wishlist';
+      btn.style.backgroundColor = "";
+      btn.style.color = "";
+    }
+  });
+}
+
+// Close details modal
+closeDetailsBtn.addEventListener("click", () => {
+  productDetailsModal.classList.remove("open");
+  overlay.classList.remove("active");
+});
+
+overlay.addEventListener("click", () => {
+  productDetailsModal.classList.remove("open");
+});
+
+// Add event listeners to all "View Details" buttons
+document.querySelectorAll(".btn-secondary").forEach(button => {
+  if (button.textContent === "View Details") {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      const card = button.closest(".store__card");
+      const name = card.querySelector("h4").textContent;
+      const price = parseFloat(card.querySelector("h3").textContent.replace("Price- $", ""));
+      const image = card.querySelector("img").src.split("/").pop();
+      const fullImagePath = "assets/" + image;
+      
+      showProductDetails(name, price, fullImagePath);
+    });
+  }
+});
+    </script>
+  </body>
+</html>
